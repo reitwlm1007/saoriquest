@@ -52,7 +52,11 @@ public class Adventure {
 			}
 		}
 			if(a == 3){
-				Bag.cellBag();
+
+				int t =Bag.count;
+
+				if(t>0){
+					Bag.cellBag();
 
 				int c = Util.nextInt();
 				Item item = Bag.getItem(c);
@@ -69,6 +73,9 @@ public class Adventure {
 
 					Util.showMessage(Hero.name + "は体力が" + Hero.hp +"となった",true);
 				}
+			}else{
+				Util.showMessage("アイテムがありません", true);
+			}
 
 		}else{
 			Util.showMessage("どの攻撃をしますか？", false);
