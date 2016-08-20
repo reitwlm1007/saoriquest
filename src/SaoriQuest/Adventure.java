@@ -7,17 +7,9 @@ public class Adventure {
 
 
 
-	//敵の初期化
-	private void enemies(){
 
-		enemy = new Enemy [3];
-		enemy[0] = new Enemy ("カラス");
-		enemy[1] = new Enemy("猛犬");
-		enemy[2] = new Enemy("ゾンビ");
-	}
 
 	public Adventure(){
-		enemies();
 	}
 
 	public void startAdventure(){
@@ -26,11 +18,10 @@ public class Adventure {
 		int b = 0;
 		int adventure;
 		adventure =(int)(Math.random()*3);
+		Enemy enemy = new Enemy(adventure);
 
 
-		Util.showMessage(enemy[adventure].name + "が襲い掛かってきた！",false);
-
-		int Life = 50;
+		Util.showMessage(enemy.name + "が襲い掛かってきた！",false);
 
 		do{
 		Util.showMessage("何をしますか？", false);
@@ -84,25 +75,25 @@ public class Adventure {
 			int c = Util.nextInt();
 
 			if(c == 1){
-				Life-=10;
-				Util.showMessage(enemy[adventure].name +"に10のダメージを与えた！", true);
+				enemy.hp-=10;
+				Util.showMessage(enemy.name +"に10のダメージを与えた！", true);
 
 			}else{
-				Life-= 30;
-				Util.showMessage(enemy[adventure].name + "に30のダメージを与えた！", true);
+				enemy.hp-= 30;
+				Util.showMessage(enemy.name + "に30のダメージを与えた！", true);
 			}
 
-			if(Life <= 0){
+			if(enemy.hp <= 0){
 				Util.showMessage("戦いに勝利した！", false);
 				break;
 			}
 
-			Util.showMessage(enemy[adventure].name +"の攻撃！", true);
+			Util.showMessage(enemy.name +"の攻撃！", true);
 			Hero.hp-=5;
 			Util.showMessage(Hero.name + "の体力は" + Hero.hp + "となった！", false);
 			Util.nextLine();
 		}
-	}while( Life>=0);
+	}while( enemy.hp>=0);
 	}
 }
 
