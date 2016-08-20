@@ -11,7 +11,7 @@ public class Curio {
 	private void VCurio(){
 
 		item = new Item[4];
-		item[0]= new Item("グリーンハーブ",50);
+		item[0]= new Item("グリーンハーブ",50,1);
 		item[1]= new Item("レッドハーブ",50);
 		item[2]= new Item("ブルーハーブ",50);
 		item[3]= new Item("スペクタクルズ",50);

@@ -68,10 +68,10 @@ public class Adventure {
 				int n = Util.nextInt();
 
 				if(n == 1){
+					Item useitem = Bag.getItem(c);
+					useitem.Use();
 					Bag.deleteBag(c);
-					Hero.hp += 20;
 
-					Util.showMessage(Hero.name + "は体力が" + Hero.hp +"となった",true);
 				}
 			}else{
 				Util.showMessage("アイテムがありません", true);
