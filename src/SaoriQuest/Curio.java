@@ -90,7 +90,7 @@ public class Curio {
 						Util.showMessage(item.name + "を売りました",true);
 						Util.showMessage("所持金が" + Hero.money + "円になった",true);
 					}
-				}
+
 
 					}else{
 						Util.showMessage("売却できるアイテムがありません",true);
@@ -99,6 +99,7 @@ public class Curio {
 
 				}
 
-		}while(i<9);
-	}
+		}
+	}while(i<9);
+}
 }
