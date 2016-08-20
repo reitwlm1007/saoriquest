@@ -1,5 +1,7 @@
 package SaoriQuest;
 
+import static SaoriQuest.GameConstants.*;
+
 public class Item {
 	String name;
 	int money;
@@ -8,7 +10,7 @@ public class Item {
 	public Item(String name,int money){
 		this(name, money, 0);
 	}
-	
+
 	public Item(String name,int money,int usePattern){
 		this.name = name;
 		this.money = money;
@@ -17,14 +19,13 @@ public class Item {
 
 	public void Use(){
 		switch(usePattern){
-		case 0:
+		case ITEM_USE_PATTERN_NOTHING:
 			Util.showMessage(Hero.name + "は" + this.name + "を使った", false);
 			Util.showMessage("しかし、何も起こらなかった", true);
 			break;
-		case 1:
-			Hero.hp += 20;
+		case ITEM_USE_PATTERN_RESTORE:
 			Util.showMessage(Hero.name + "は" + this.name + "を使った", false);
-			Util.showMessage(Hero.name + "は体力が" + Hero.hp + "となった", true);
+			Hero.restoreHp(20);
 			break;
 		}
 
